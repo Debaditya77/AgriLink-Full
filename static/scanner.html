@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>AgriLink - Scanner</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&amp;family=Work+Sans:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "surface": "#f9faf7",
+                    "on-surface-variant": "#434840",
+                    "on-error-container": "#93000a",
+                    "on-tertiary-fixed-variant": "#414941",
+                    "on-surface": "#191c1b",
+                    "error": "#ba1a1a",
+                    "secondary": "#51634a",
+                    "primary-fixed": "#caecbc",
+                    "outline-variant": "#c3c8bd",
+                    "surface-container": "#edeeeb",
+                    "error-container": "#ffdad6",
+                    "on-secondary-container": "#576a50",
+                    "tertiary-container": "#5a625a",
+                    "surface-tint": "#496640",
+                    "primary": "#334f2b",
+                    "on-primary-fixed": "#062104",
+                    "on-primary-fixed-variant": "#324e2a",
+                    "on-tertiary": "#ffffff",
+                    "surface-container-high": "#e7e8e6",
+                    "secondary-container": "#d4e9c8",
+                    "surface-variant": "#e2e3e0",
+                    "on-secondary": "#ffffff",
+                    "on-secondary-fixed": "#0f1f0b",
+                    "surface-container-lowest": "#ffffff",
+                    "outline": "#73796f",
+                    "inverse-surface": "#2e312f",
+                    "on-secondary-fixed-variant": "#3a4b34",
+                    "surface-bright": "#f9faf7",
+                    "on-tertiary-fixed": "#161d17",
+                    "secondary-fixed-dim": "#b8cdae",
+                    "primary-fixed-dim": "#afd0a1",
+                    "tertiary": "#424a43",
+                    "on-primary-container": "#c2e4b4",
+                    "on-tertiary-container": "#d5ddd3",
+                    "primary-container": "#4a6741",
+                    "surface-container-low": "#f3f4f1",
+                    "on-background": "#191c1b",
+                    "surface-container-highest": "#e2e3e0",
+                    "on-primary": "#ffffff",
+                    "surface-dim": "#d9dad7",
+                    "tertiary-fixed": "#dde5db",
+                    "tertiary-fixed-dim": "#c1c9bf",
+                    "inverse-primary": "#afd0a1",
+                    "on-error": "#ffffff",
+                    "secondary-fixed": "#d4e9c8",
+                    "background": "#f9faf7",
+                    "inverse-on-surface": "#f0f1ee"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "container-padding": "24px",
+                    "bento-gap": "16px",
+                    "unit": "4px",
+                    "gutter": "24px",
+                    "margin": "32px"
+            },
+            "fontFamily": {
+                    "body-lg": ["Work Sans"],
+                    "headline-md": ["Manrope"],
+                    "label-sm": ["Work Sans"],
+                    "body-md": ["Work Sans"],
+                    "headline-xl": ["Manrope"],
+                    "headline-lg": ["Manrope"],
+                    "label-bold": ["Work Sans"]
+            },
+            "fontSize": {
+                    "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                    "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "700"}],
+                    "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "500"}],
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "headline-xl": ["40px", {"lineHeight": "48px", "letterSpacing": "-0.02em", "fontWeight": "800"}],
+                    "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "700"}],
+                    "label-bold": ["14px", {"lineHeight": "20px", "fontWeight": "600"}]
+            }
+          }
+        }
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .bento-card {
+            background: rgba(249, 250, 247, 0.85); /* surface color with opacity */
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1.5px solid var(--tw-colors-outline-variant);
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body-md text-body-md antialiased min-h-screen">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 bg-stone-50/80 dark:bg-stone-950/80 backdrop-blur-lg border-b border-white/20 dark:border-stone-800/50 shadow-sm flex justify-between items-center px-8 py-4 w-full">
+<div class="flex items-center gap-4">
+<!-- Mobile Menu Trigger (Decorative for this scope) -->
+<button class="lg:hidden text-stone-800 dark:text-stone-100 hover:bg-stone-200/50 dark:hover:bg-stone-800/50 transition-colors p-2 rounded-full scale-95 duration-200">
+<span class="material-symbols-outlined">menu</span>
+</button>
+<div class="text-2xl font-extrabold tracking-tight text-[#4A6741] dark:text-[#6a8d5e] font-manrope font-semibold">
+                AgriLink
+            </div>
+</div>
+<div class="flex items-center gap-2">
+<button class="text-stone-800 dark:text-stone-100 hover:bg-stone-200/50 dark:hover:bg-stone-800/50 transition-colors p-2 rounded-full scale-95 duration-200 relative">
+<span class="material-symbols-outlined">notifications</span>
+<span class="absolute top-2 right-2 w-2 h-2 bg-[#4A6741] rounded-full"></span>
+</button>
+</div>
+</header>
+<!-- SideNavBar (Desktop) -->
+<aside class="h-screen w-64 fixed left-0 top-0 hidden lg:flex flex-col bg-stone-100 dark:bg-stone-950 border-r border-stone-200 dark:border-stone-800 pt-20 z-40">
+<div class="px-6 py-4 border-b border-stone-200 dark:border-stone-800 mb-2">
+<div class="text-xl font-black text-[#4A6741] dark:text-stone-100">AgriLink</div>
+<div class="font-manrope text-sm text-stone-500">Digital Farmhand</div>
+</div>
+<nav class="flex flex-col gap-2 p-6 flex-1 overflow-y-auto">
+<!-- Active: Dashboard -->
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-stone-600 dark:text-stone-400 hover:bg-stone-200 dark:hover:bg-stone-800 transition-all duration-300 ease-in-out font-manrope text-sm" href="dashboard.html">
+<span class="material-symbols-outlined" >dashboard</span>
+                Dashboard
+            </a>
+<!-- Inactive -->
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-stone-600 dark:text-stone-400 hover:bg-stone-200 dark:hover:bg-stone-800 transition-all duration-300 ease-in-out font-manrope text-sm" href="inventory.html">
+<span class="material-symbols-outlined">inventory_2</span>
+                Inventory
+            </a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg bg-stone-200/50 dark:bg-stone-800/50 text-[#4A6741] dark:text-stone-50 font-bold border-r-4 border-[#4A6741] transition-all duration-300 ease-in-out font-manrope text-sm" href="scanner.html">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">photo_camera</span>
+                Scanner
+            </a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-stone-600 dark:text-stone-400 hover:bg-stone-200 dark:hover:bg-stone-800 transition-all duration-300 ease-in-out font-manrope text-sm" href="marketplace.html">
+<span class="material-symbols-outlined">handshake</span>
+                Marketplace
+            </a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-stone-600 dark:text-stone-400 hover:bg-stone-200 dark:hover:bg-stone-800 transition-all duration-300 ease-in-out font-manrope text-sm" href="settings.html">
+<span class="material-symbols-outlined">settings</span>
+                Settings
+            </a>
+</nav>
+<div class="mt-auto p-6 border-t border-stone-200/50 dark:border-stone-800/50">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-stone-300 overflow-hidden border-2 border-white dark:border-stone-900 shadow-sm">
+<img alt="Farmer Profile" class="w-full h-full object-cover" data-alt="close up portrait of a middle aged man with a beard wearing a plaid shirt outdoors in natural lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCgzZYsj9Mapp2HM4YpqGhI8nVp5_c76OHFJ2gzWogTREELzvt3KbTwp8_PpJp5xgUH-NtX5Y6jKd1-Ps053HRySj11gSvWCtI1eNmcl2CG9nb4gyzMuuMNtOz0ltR7whtdzI6cCxIos7IpofzTkSStea-E8NVoOa18X2qwjVFKpB81HAkmwJ3PoTbSSiJIKDVTIaB4ULsj6-fI32cpaMJeM-jzeoeI__pYwVrIUALox4OqkxtbZzw1NBqJDOxSb1Id2LcRS8h5exAZ"/>
+</div>
+<div class="flex-1 min-w-0">
+<p class="font-manrope text-sm font-bold text-stone-800 dark:text-stone-200 truncate">J. Appleseed</p>
+<p class="font-manrope text-xs text-stone-500 truncate">Operator</p>
+</div>
+</div>
+</div>
+</aside>
+<main class="flex-1 relative w-full h-screen bg-inverse-surface pt-[72px] pb-[80px] lg:pt-0 lg:pb-0 lg:ml-64 flex flex-col">
+<!-- Live Camera Feed Simulation -->
+<div class="absolute inset-0 w-full h-full z-0 overflow-hidden">
+<img alt="Camera feed" class="w-full h-full object-cover opacity-90 scale-105" data-alt="Close up macro shot of a green plant leaf showing signs of early blight disease with characteristic concentric dark brown spots, natural soft outdoor lighting, shallow depth of field" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAj9zAQ3tckmEAxfcyJZZTUTIwFCG6tcRh6vIJCsrvUf_KoQSa39WvNuHL3CFn-horNv7Ybz3LF63R32vN-iDZs2kZ_K85QfOZvcpwkgVyTOuC-u7iPIo4SGuPoPGeoS1_hGCljuw5lQdInDHM8jFWWGz_cwlaheYwtFkOs3EwDO2ST4AktpxQbjD3y7sV2jgv0XJE3n2O2ZQJ8wozUBusWQbOFQg5rnoN9NKPf0mZMzkRmyBjDhAi25f5x5-bCas7autvRS_sANJFz"/>
+<div class="absolute inset-0 bg-gradient-to-b from-inverse-surface/30 via-transparent to-inverse-surface/60"></div>
+</div>
+<!-- Scanner Targeting Reticle -->
+<div class="absolute inset-0 flex items-center justify-center z-10 pointer-events-none pb-20 lg:pb-0">
+<div class="relative w-72 h-72 lg:w-96 lg:h-96">
+<!-- Reticle Corners -->
+<div class="absolute top-0 left-0 w-12 h-12 border-t-4 border-l-4 border-primary-fixed rounded-tl-xl opacity-80"></div>
+<div class="absolute top-0 right-0 w-12 h-12 border-t-4 border-r-4 border-primary-fixed rounded-tr-xl opacity-80"></div>
+<div class="absolute bottom-0 left-0 w-12 h-12 border-b-4 border-l-4 border-primary-fixed rounded-bl-xl opacity-80"></div>
+<div class="absolute bottom-0 right-0 w-12 h-12 border-b-4 border-r-4 border-primary-fixed rounded-br-xl opacity-80"></div>
+<!-- Center Target -->
+<div class="absolute inset-0 flex items-center justify-center">
+<div class="w-16 h-16 border-2 border-primary-fixed/50 rounded-full flex items-center justify-center relative">
+<div class="w-2 h-2 bg-primary-fixed rounded-full shadow-[0_0_12px_4px_rgba(202,236,188,0.6)]"></div>
+</div>
+</div>
+<!-- Scanning Line Overlay -->
+<div class="absolute top-1/2 left-0 w-full h-[2px] bg-primary-fixed/80 shadow-[0_0_16px_4px_rgba(202,236,188,0.4)]"></div>
+</div>
+</div>
+<!-- Diagnostic Results Glassmorphism Card -->
+<div class="absolute bottom-0 left-0 w-full p-gutter pb-[100px] lg:pb-gutter z-20 flex justify-center">
+<div class="w-full max-w-lg bg-surface/85 backdrop-blur-xl border-t border-l border-white/40 border-b border-r border-outline-variant/20 rounded-[20px] p-container-padding shadow-[0_16px_40px_-12px_rgba(0,0,0,0.3)]">
+<!-- Status Header -->
+<div class="flex items-center justify-between mb-4">
+<div class="flex items-center gap-2 bg-error-container/80 text-on-error-container px-3 py-1.5 rounded-full border border-error-container/50">
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">warning</span>
+<span class="font-label-bold text-label-bold">94% Confidence</span>
+</div>
+<button class="w-8 h-8 flex items-center justify-center rounded-full bg-surface-variant/50 text-on-surface-variant hover:bg-surface-variant transition-colors">
+<span class="material-symbols-outlined text-[18px]">close</span>
+</button>
+</div>
+<!-- Primary Info -->
+<h2 class="font-headline-md text-headline-md text-on-surface mb-2 tracking-tight">Early Blight Detected</h2>
+<p class="font-body-md text-body-md text-on-surface-variant mb-6 leading-relaxed">
+                    Alternaria solani structural damage identified on lower canopy leaves. High risk of spread in current humidity conditions.
+                </p>
+<!-- Action Area -->
+<button class="w-full bg-primary text-on-primary hover:bg-on-primary-fixed-variant transition-colors py-4 rounded-xl font-label-bold text-[16px] flex items-center justify-center gap-3 shadow-sm border border-primary-fixed/20">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">medical_services</span>
+                    View Treatment Plan
+                </button>
+</div>
+</div>
+</main>
+<!-- BottomNavBar (Mobile) -->
+<nav class="md:hidden fixed bottom-0 w-full z-50 rounded-t-2xl border-t border-white/30 bg-stone-50/90 dark:bg-stone-900/90 backdrop-blur-xl border-t border-stone-200 dark:border-stone-800 shadow-[0_-4px_12px_rgba(0,0,0,0.05)] fixed bottom-0 left-0 w-full h-20 flex justify-around items-center px-4 pb-safe font-manrope text-[10px] font-bold uppercase tracking-wider">
+<!-- Active: Home -->
+<a class="flex flex-col items-center justify-center text-stone-500 dark:text-stone-400 px-4 py-2 hover:text-[#4A6741] dark:hover:text-[#6a8d5e] transition-colors group" href="dashboard.html">
+<span class="material-symbols-outlined mb-1 group-hover:scale-110 transition-transform">home</span>
+<span>Home</span>
+</a>
+<!-- Inactive: Co-Pilot -->
+<a class="flex flex-col items-center justify-center text-stone-500 dark:text-stone-400 px-4 py-2 hover:text-[#4A6741] dark:hover:text-[#6a8d5e] transition-colors group" href="inventory.html">
+<span class="material-symbols-outlined mb-1 group-hover:scale-110 transition-transform">mic</span>
+<span>Co-Pilot</span>
+</a>
+<!-- Inactive: Scanner -->
+<a class="flex flex-col items-center justify-center bg-[#4A6741] text-white rounded-xl px-6 py-2 shadow-inner Active: scale-90 transition-transform duration-150 group" href="scanner.html">
+<span class="material-symbols-outlined mb-1" style="font-variation-settings: 'FILL' 1;">center_focus_weak</span>
+<span>Scanner</span>
+</a>
+<!-- Inactive: Market -->
+<a class="flex flex-col items-center justify-center text-stone-500 dark:text-stone-400 px-4 py-2 hover:text-[#4A6741] dark:hover:text-[#6a8d5e] transition-colors group" href="marketplace.html">
+<span class="material-symbols-outlined mb-1 group-hover:scale-110 transition-transform">storefront</span>
+<span>Market</span>
+</a>
+</nav>
+
+</body></html>
